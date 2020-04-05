@@ -1,0 +1,82 @@
+
+plugins {
+    id 'java'
+    id 'maven-publish'
+    id 'java-gradle-plugin'
+    id 'com.gradle.plugin-publish' version '0.11.0'
+    id 'com.github.johnrengelman.shadow' version '5.1.0'
+
+}
+
+
+group 'io.github.torrescd'
+version '0.0.1-ASDDDD'
+
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/libs-release"}
+}
+
+dependencies {
+
+    compile localGroovy()
+    compile gradleApi()
+
+    compile group: 'org.openmbee.junit', name: 'junit-xml-parser', version: '1.0.0'
+    
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+
+    compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.10.3'
+
+    testImplementation('org.junit.jupiter:junit-jupiter:5.6.1')
+}
+
+test {
+    useJUnitPlatform()
+}
+
+
+/*
+task report(type: TestReport) {
+    
+    destinationDir = file("$buildDir/reports/allTests")
+
+    testResultDirs = files("$buildDir/sample/")
+}*/
+
+
+gradlePlugin {
+    plugins {
+
+        applicationbuilderPlugin {
+            id = 'junitxml-gradle-plugin'
+            displayName = 'junitxml-gradle-plugin'
+            description = 'junitxml-gradle-plugin'
+            implementationClass = 'io.github.torrescd.junitxml.JunitXMLGradlePlugin'
+
+        }
+    }
+}
+
+/*
+
+pluginBundle {
+    website = 'https://github.com/gradle/android-cache-fix-gradle-plugin'
+    vcsUrl = 'https://github.com/gradle/android-cache-fix-gradle-plugin'
+
+    description = 'Gradle plugin to fix Android caching problems'
+
+    plugins {
+        ASDDD {
+            id = 'org.gradle.android.cache-fix'
+            displayName = 'Gradle Android cache fix plugin'
+            tags = ['android', 'cache', 'fix']
+            version = project.version
+        }
+    }
+}
+*/
