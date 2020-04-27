@@ -1,5 +1,6 @@
-package io.github.torrescd.junitxml.UnitTestCase;
+package io.github.torrescd.junitxml.model;
 
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlCData;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlElementWrapper;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import org.openmbee.junit.model.JUnitProperty;
@@ -19,6 +20,7 @@ public class UnitTestSuite {
     boolean disabled;
     @JacksonXmlProperty(isAttribute = true)
     int errors;
+    
     @JacksonXmlProperty(isAttribute = true)
     int failures;
     @JacksonXmlProperty(isAttribute = true)
@@ -56,12 +58,13 @@ public class UnitTestSuite {
     @JacksonXmlProperty(localName = "testcase")
     public List<UnitTestCase> testCases = new ArrayList<>();
 
+    @JacksonXmlCData
+    @JacksonXmlProperty(localName = "system-out")
+    public String systemOut;
 
-    @XmlElement(name = "system-out")
-    String systemOut;
-    @XmlElement(name = "system-err")
-    public
-    String systemErr;
+    @JacksonXmlCData
+    @JacksonXmlProperty(localName = "system-err")
+    public String systemErr;
 
 
 

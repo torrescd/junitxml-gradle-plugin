@@ -1,6 +1,7 @@
 
 plugins {
     id 'java'
+    id 'idea'
     id 'maven-publish'
     id 'java-gradle-plugin'
     id 'com.gradle.plugin-publish' version '0.11.0'
@@ -8,10 +9,8 @@ plugins {
 
 }
 
-
 group 'io.github.torrescd'
-version '0.0.1-ASDDDD'
-
+version '0.0.3-SNAPSHOT'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -26,34 +25,33 @@ dependencies {
     compile localGroovy()
     compile gradleApi()
 
+    compileOnly 'org.projectlombok:lombok:1.18.4'
+    annotationProcessor 'org.projectlombok:lombok:1.18.4'
+
     compile group: 'org.openmbee.junit', name: 'junit-xml-parser', version: '1.0.0'
     
     compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
 
     compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.10.3'
 
-    testImplementation('org.junit.jupiter:junit-jupiter:5.6.1')
+    testCompile('org.junit.jupiter:junit-jupiter:5.6.1')
+    
+    testRuntime("org.junit.jupiter:junit-jupiter-engine:5.6.1")
+
+    testCompile 'org.mockito:mockito-core:3.1.0'
+    
+    testCompile 'org.mockito:mockito-junit-jupiter:3.1.0'
 }
 
 test {
     useJUnitPlatform()
 }
 
-
-/*
-task report(type: TestReport) {
-    
-    destinationDir = file("$buildDir/reports/allTests")
-
-    testResultDirs = files("$buildDir/sample/")
-}*/
-
-
 gradlePlugin {
     plugins {
 
         applicationbuilderPlugin {
-            id = 'junitxml-gradle-plugin'
+            id = 'io.github.torrescd.junitxml-gradle-plugin'
             displayName = 'junitxml-gradle-plugin'
             description = 'junitxml-gradle-plugin'
             implementationClass = 'io.github.torrescd.junitxml.JunitXMLGradlePlugin'
@@ -62,21 +60,10 @@ gradlePlugin {
     }
 }
 
-/*
 
 pluginBundle {
-    website = 'https://github.com/gradle/android-cache-fix-gradle-plugin'
-    vcsUrl = 'https://github.com/gradle/android-cache-fix-gradle-plugin'
-
-    description = 'Gradle plugin to fix Android caching problems'
-
-    plugins {
-        ASDDD {
-            id = 'org.gradle.android.cache-fix'
-            displayName = 'Gradle Android cache fix plugin'
-            tags = ['android', 'cache', 'fix']
-            version = project.version
-        }
-    }
+    website = 'https://github.com/torrescd/junitxml-gradle-plugin'
+    vcsUrl = 'https://github.com/torrescd/junitxml-gradle-plugin'
+    tags = ['junit', 'xml']
 }
-*/
+

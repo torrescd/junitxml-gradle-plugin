@@ -1,4 +1,4 @@
-package io.github.torrescd.junitxml.UnitTestCase;
+package io.github.torrescd.junitxml.model;
 
 
 import java.util.ArrayList;

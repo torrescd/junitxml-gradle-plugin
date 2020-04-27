@@ -1,8 +1,8 @@
 package io.github.torrescd.junitxml;
 
-import io.github.torrescd.junitxml.UnitTestCase.UnitTestCase;
-import io.github.torrescd.junitxml.UnitTestCase.UnitTestSuite;
-import io.github.torrescd.junitxml.UnitTestCase.Report;
+import io.github.torrescd.junitxml.model.UnitTestCase;
+import io.github.torrescd.junitxml.model.UnitTestSuite;
+import io.github.torrescd.junitxml.model.Report;
 
 import java.util.Arrays;
 import java.util.HashMap;
@@ -47,7 +47,10 @@ public class ShiftResultsOneLevel {
             testSuiteHashMap.put(className, unitTestSuite);
         }
         
+        
         UnitTestCase unitTestCase = new UnitTestCase();
+
+        unitTestSuiteOld.testCases.forEach( oldTestCase -> unitTestCase.failures.addAll(oldTestCase.failures));
         
         unitTestCase.name = parts[parts.length -1];
         unitTestCase.time = unitTestSuiteOld.time;

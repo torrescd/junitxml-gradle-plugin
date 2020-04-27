@@ -1,32 +1,18 @@
 package io.github.torrescd.junitxml;
 
-import org.junit.jupiter.api.Assertions;
+import java.io.File;
 
 class ProcessResultsTest {
+
 
     @org.junit.jupiter.api.Test
     void processResults() throws Exception {
 
+
+        new JunitParser().parse(new File[]{new File("src/test/resources/failure.xml")}, true);
         
-        //ProcessResults.ProcessResults(testResultProcessor);
         
     }
 
-    @org.junit.jupiter.api.Test
-    void processResults1() throws Exception {
 
-
-        Assertions.assertEquals(1,1, "ok");
-
-    }
-
-    @org.junit.jupiter.api.Test
-    void processResults2() throws Exception {
-
-
-        Assertions.assertEquals(2,2, "ok2");
-        Assertions.assertEquals(3,4, "ok3");
-
-
-    }
 }
