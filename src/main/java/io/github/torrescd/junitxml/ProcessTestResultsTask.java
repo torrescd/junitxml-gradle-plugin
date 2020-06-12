@@ -27,6 +27,10 @@ public class ProcessTestResultsTask extends Test {
         this.alreadyProcessed = alreadyProcessed;
     }
 
+    public boolean isAlreadyProcessed() {
+        return alreadyProcessed;
+    }
+
     @Input
     @Optional
     @Option(option = "alreadyProcessed", description = "")
