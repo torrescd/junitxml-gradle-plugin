@@ -54,6 +54,9 @@ public class ShiftResultsOneLevel {
         
         unitTestCase.name = parts[parts.length -1];
         unitTestCase.time = unitTestSuiteOld.time;
+
+
+        unitTestCase.properties.addAll(unitTestSuiteOld.properties);
                 
         unitTestSuite.testCases.add(unitTestCase);
         

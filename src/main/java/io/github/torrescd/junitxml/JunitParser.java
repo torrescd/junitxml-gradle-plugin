@@ -23,16 +23,18 @@ public class JunitParser {
             module.setDefaultUseWrapper(false);
 
             XmlMapper mapper = new XmlMapper(module);
-            FileInputStream fileInputStream;
             
             //this is attached to our test fwk
             if (!alreadyProcessed) {
-                fileInputStream = new FileInputStream(file);
-                report.testsuite.addAll(mapper.readValue(fileInputStream, Report.class).testsuite);
+                try (FileInputStream fileInputStream = new FileInputStream(file)) {
+                    report.testsuite.addAll(mapper.readValue(fileInputStream, Report.class).testsuite);
+                }
+                
             }
             else {
-                fileInputStream = new FileInputStream(file);
-                report.testsuite.add(mapper.readValue(fileInputStream, UnitTestSuite.class));
+                try (FileInputStream fileInputStream = new FileInputStream(file)) {
+                    report.testsuite.add(mapper.readValue(fileInputStream, UnitTestSuite.class));
+                }
             }
             
         }

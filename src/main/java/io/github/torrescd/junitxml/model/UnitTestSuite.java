@@ -52,11 +52,12 @@ public class UnitTestSuite {
 
     @JacksonXmlElementWrapper(localName = "properties")
     @JacksonXmlProperty(localName = "property")
-    List<JUnitProperty> properties;
+    public List<JUnitProperty> properties = new ArrayList<>();
 
     @JacksonXmlElementWrapper(useWrapping = false)
     @JacksonXmlProperty(localName = "testcase")
     public List<UnitTestCase> testCases = new ArrayList<>();
+
 
     @JacksonXmlCData
     @JacksonXmlProperty(localName = "system-out")
