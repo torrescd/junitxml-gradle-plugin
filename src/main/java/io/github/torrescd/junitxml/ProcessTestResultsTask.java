@@ -1,7 +1,7 @@
 package io.github.torrescd.junitxml;
 
+import io.SuppressableStacktraceException;
 import io.github.torrescd.junitxml.model.Report;
-import io.github.torrescd.junitxml.model.SuppressableStacktraceException;
 import io.github.torrescd.junitxml.model.UnitTestCase;
 import io.github.torrescd.junitxml.model.UnitTestSuite;
 import org.gradle.api.internal.project.ProjectInternal;
