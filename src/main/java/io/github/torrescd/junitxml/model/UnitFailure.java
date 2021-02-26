@@ -8,12 +8,12 @@ import lombok.Data;
 public class UnitFailure {
 
     @JacksonXmlProperty(isAttribute = true)
-    private String message;
+    private String message = "";
 
     @JacksonXmlProperty(isAttribute = true)
-    private String type;
+    private String type = "";
 
     @JacksonXmlText
-    private String value;
+    private String value = "";
     
 }
