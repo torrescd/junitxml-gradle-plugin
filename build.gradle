@@ -10,14 +10,13 @@ plugins {
 }
 
 group 'io.github.torrescd'
-version '0.0.7-SNAPSHOT.6'
+version '0.0.7-SNAPSHOT.10'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
-    maven { url "https://repo.spring.io/libs-release"}
 }
 
 dependencies {
@@ -28,16 +27,19 @@ dependencies {
     compileOnly 'org.projectlombok:lombok:1.18.4'
     annotationProcessor 'org.projectlombok:lombok:1.18.4'
 
-    compile group: 'org.openmbee.junit', name: 'junit-xml-parser', version: '1.0.0'
-    
-    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.3.1'
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.5'
+    compile group: 'commons-io', name: 'commons-io', version: '2.5'
+
+    compile group: 'javax.xml.bind', name: 'jaxb-api', version: '2.2.12'
+    compile group: 'com.sun.xml.bind', name: 'jaxb-core', version: '2.2.11'
+    compile group: 'com.sun.xml.bind', name: 'jaxb-impl', version: '2.2.11'
 
     compile group: 'com.fasterxml.jackson.dataformat', name: 'jackson-dataformat-xml', version: '2.10.3'
 
     testCompile('org.junit.jupiter:junit-jupiter:5.6.1')
     
     implementation("org.junit.jupiter:junit-jupiter-engine:5.6.1")
-
+    
     //testRuntime("org.junit.platform:junit-platform-core:1.6.1")
     testRuntime("org.junit.platform:junit-platform-launcher:1.6.1")
 
@@ -70,4 +72,3 @@ pluginBundle {
     vcsUrl = 'https://github.com/torrescd/junitxml-gradle-plugin'
     tags = ['junit', 'xml']
 }
-

@@ -1,0 +1,5 @@
+rootProject.name = 'junit-gradle-plugin'
+
+include 'junit-xml-parser'
+
+project(':junit-xml-parser').projectDir = new File('subprojects/junit-xml-parser')

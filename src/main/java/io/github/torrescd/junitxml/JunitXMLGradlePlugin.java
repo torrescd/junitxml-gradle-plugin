@@ -26,6 +26,7 @@ public class JunitXMLGradlePlugin implements Plugin<ProjectInternal>{
         FileCollectionFactory fileCollectionFactory = project.getServices().get(FileCollectionFactory.class);
         
         project.getTasks().withType(Test.class).configureEach(test -> {
+            test.setTestClassesDirs(fileCollectionFactory.fixed(new File(project.getBuildDir(), "test-results/test")));
             test.getConventionMapping().map("testClassesDirs", () ->fileCollectionFactory.fixed(new File(project.getBuildDir(), "test-results/test")));
             test.getConventionMapping().map("classpath", () -> fileCollectionFactory.fixed(new File(project.getBuildDir(), "test-results/test")));
         });

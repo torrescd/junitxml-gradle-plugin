@@ -6,7 +6,6 @@ import org.gradle.api.internal.tasks.testing.*;
 import org.gradle.api.internal.tasks.testing.results.DefaultTestResult;
 import org.gradle.api.tasks.testing.*;
 import org.gradle.internal.event.ListenerManager;
-import org.openmbee.junit.model.JUnitFailure;
 
 import java.util.Collections;
 import java.util.List;
